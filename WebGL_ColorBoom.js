@@ -7,7 +7,7 @@
     height: 100%;
   }
 </style>
-<script src="https://cdn.jsdelivr.net/gh/Milch-Schnitte/webflowFunctions@main/WebGL_ColorBom.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Milch-Schnitte/webflowFunctions@main/WebGL_ColorBoom.js"></script>
 <script>
   var canvas = document.createElement("canvas");
   canvas.id = "colorBoom_canvas";
@@ -46,7 +46,7 @@
   initColorBoom(container);
 </script>
 */
-function initColorBoom(canvas) {
+function initColorBoom() {
   function pointerPrototype() {
     this.id = -1;
     this.texcoordX = 0;
@@ -499,7 +499,7 @@ function initColorBoom(canvas) {
   var sunrays;
   var sunraysTemp;
 
-  var ditheringTexture = createTextureAsync("LDR_LLL1_0.png");
+  var ditheringTexture = createTextureAsync("/LDR_LLL1_0.png");
 
   var blurProgram = new Program(blurVertexShader, blurShader);
   var copyProgram = new Program(baseVertexShader, copyShader);
@@ -1048,7 +1048,7 @@ function initColorBoom(canvas) {
 
   function drawColor(fbo, color) {
     colorProgram.bind();
-    gl.uniform4f(colorProgram.uniforms.color, color.r, color.g, color.b, 1);
+    //gl.uniform4f(colorProgram.uniforms.color, color.r, color.g, color.b, 1);
     blit(fbo);
   }
 

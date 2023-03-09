@@ -1,4 +1,4 @@
-/**WebGL ColorBoom **/
+/**WebGL ColoorBoom **/
 
 /* init Code 
 <script>

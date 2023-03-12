@@ -45,7 +45,7 @@
 </script>
 
 */
-function init(element, color1,color2) {
+function init(element,color2) {
     bg_waves = element;
     container = document.createElement("div");
     bg_waves.appendChild(container);
@@ -58,7 +58,11 @@ function init(element, color1,color2) {
     camera.position.z = 1200;
     scene = new THREE.Scene();
     // Background color //
-    scene.background = new THREE.Color(color1);
+    //scene.background = new THREE.Color(0xffffff, 0);
+
+    //scene.background = new THREE.WebGLRenderer( { alpha: true } ); // init like this
+    //scene.background.setClearColor( 0xffffff, 0 );
+
     var numParticles = AMOUNTX * AMOUNTY;
     var positions = new Float32Array(numParticles * 3);
     var scales = new Float32Array(numParticles);
@@ -93,7 +97,12 @@ function init(element, color1,color2) {
     //
     renderer = new THREE.WebGLRenderer({
       antialias: true,
+      alpha: true,
     });
+    renderer.setClearColor( 0xffffff, 0 );
+
+        //scene.background = new THREE.WebGLRenderer( { alpha: true } ); // init like this
+    //scene.background.setClearColor( 0xffffff, 0 );
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
